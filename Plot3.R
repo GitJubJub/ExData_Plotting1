@@ -2,7 +2,13 @@
 
 ## Step 1.  Read in Data
 
-  a<- read.table("household_power_consumption.txt", header = TRUE, sep = ";", stringsAsFactors = FALSE)
+temp<- tempfile()
+fileurl<- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+download.file(fileurl,temp)
+
+a<- read.table("household_power_consumption.txt", header = TRUE, sep = ";", stringsAsFactors = FALSE)
+
+unlink(temp)
 
 ## Step 2. Format Columns and Subset Data
 
